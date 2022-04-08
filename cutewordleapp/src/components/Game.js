@@ -1,10 +1,17 @@
 import React from "react";
 
+import Gameboard from "./Gameboard";
+import Keyboard from "./Keyboard";
+
 class Game extends React.Component {
 
     render () {
         return (
-            <h1>Game</h1>
+            <div>
+                <h1>Wordle</h1>
+                <Gameboard/>
+                <Keyboard/>
+            </div>
         );
     }
 }
