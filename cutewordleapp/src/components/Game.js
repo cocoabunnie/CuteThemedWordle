@@ -9,7 +9,6 @@ class Game extends React.Component {
             <div className="game">
                 <h1>Wordle</h1>
                 <Gameboard/>
-                <Keyboard/>
             </div>
         );
     }

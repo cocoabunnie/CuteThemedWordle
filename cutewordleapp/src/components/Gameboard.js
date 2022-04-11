@@ -1,4 +1,5 @@
 import React from "react";
+import Keyboard from "./Keyboard";
 import '../css/Gameboard.css';
 
 class Gameboard extends React.Component {
@@ -14,6 +15,10 @@ class Gameboard extends React.Component {
                 ["", "", "", "", ""]
             ],
         }
+    }
+
+    addLetter(letter) {
+        console.log(letter);
     }
 
     render () {
@@ -73,6 +78,8 @@ class Gameboard extends React.Component {
                     <Box column={3} row={5}/>
                     <Box column={4} row={5}/>
                 </div>
+
+                <Keyboard addToBoard = {this.addLetter}/>
             </div>
         );
     }
