@@ -19,10 +19,12 @@ class Gameboard extends React.Component {
 
     render () {
 
-        const [board, boardVal] = this.state.boardValue;
+        /*const [board, boardVal] = this.state.boardValue;*/
+        const board = this.state.boardValue;
 
         function Box({column, row}){
-            return <div className = "box">Test</div>
+            var inputLetter = board[row][column];
+            return <div className = "box">{inputLetter}</div>
         }
 
         return (
