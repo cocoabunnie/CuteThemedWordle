@@ -1,13 +1,12 @@
 import React from "react";
-
+import '../css/Game.css';
 import Gameboard from "./Gameboard";
 import Keyboard from "./Keyboard";
 
 class Game extends React.Component {
-
     render () {
         return (
-            <div>
+            <div className="game">
                 <h1>Wordle</h1>
                 <Gameboard/>
                 <Keyboard/>
@@ -15,5 +14,4 @@ class Game extends React.Component {
         );
     }
 }
-
 export default Game;
