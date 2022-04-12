@@ -8,9 +8,9 @@ class Keyboard extends React.Component {
         const getLetter = event.target.value;
 
         if(getLetter == "DELETE"){
-            this.props.deleteLetter();
+            this.props.delete();
         } else if (getLetter == "SUBMIT"){
-            this.props.submitLetter();
+            this.props.submit();
         } else {
             this.props.addToBoard(getLetter);
         }

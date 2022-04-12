@@ -35,6 +35,27 @@ class Gameboard extends React.Component {
         });
     }
 
+    deleteLetter = () => {
+        var currBoard = this.state.boardValue;
+        var row = this.state.currRow;
+        var column = this.state.currColumn;
+        
+        if (column > 0){
+            currBoard[row][column - 1] = "";
+            this.setState({currColumn: (column - 1)});
+        }
+
+        this.setState ({
+            boardValue: currBoard
+        });
+
+        console.log(this.state.boardValue);
+    }
+
+    submitWord = () => {
+        console.log("submitting");
+    }
+
     render () {
         const board = this.state.boardValue;
 
@@ -93,7 +114,7 @@ class Gameboard extends React.Component {
                     <Box column={4} row={5}/>
                 </div>
 
-                <Keyboard addToBoard = {this.addLetter}/>
+                <Keyboard addToBoard = {this.addLetter} delete = {this.deleteLetter} submit = {this.submitWord}/>
             </div>
         );
     }
