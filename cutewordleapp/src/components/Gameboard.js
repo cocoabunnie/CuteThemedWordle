@@ -24,15 +24,19 @@ class Gameboard extends React.Component {
         var row = this.state.currRow;
         var column = this.state.currColumn;
 
-        //Check to make sure letters haven't reached the end
-        if (column <= 4){
-            currBoard[row][column] = letter;
-            this.setState({currColumn: (column + 1)});
+        //To ensure the user hasn't reached the end of the board (vertical)
+        if (row <= 5){
+            //Check to make sure letters haven't reached the end of a row
+            if (column <= 4){
+                currBoard[row][column] = letter;
+                this.setState({currColumn: (column + 1)});
+            }
+    
+            this.setState ({
+                boardValue: currBoard
+            });
         }
-
-        this.setState ({
-            boardValue: currBoard
-        });
+        
     }
 
     deleteLetter = () => {
@@ -53,7 +57,19 @@ class Gameboard extends React.Component {
     }
 
     submitWord = () => {
-        console.log("submitting");
+        var column = this.state.currColumn;
+        var row = this.state.currRow;
+
+        if (column == 5){
+            row = row + 1;
+            column = 0;
+        } else {
+            console.log("Finish the word first!");
+        }
+
+        this.setState({currRow: row});
+        this.setState({currColumn: column});
+        console.log(row + " " + column);
     }
 
     render () {
