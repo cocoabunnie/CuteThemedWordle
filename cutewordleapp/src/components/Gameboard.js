@@ -28,7 +28,7 @@ class Gameboard extends React.Component {
 
     chooseRandomWord = () => {
         var randomNum = Math.floor(Math.random() * words.length);
-        var chosenWord = words[randomNum].word;
+        var chosenWord = words[randomNum].word.toUpperCase();
 
         this.setState({winnerWord: chosenWord.toString()});
         setTimeout(function() { //Slight delay to make sure it happens in order....
@@ -80,6 +80,8 @@ class Gameboard extends React.Component {
         var row = this.state.currRow;
 
         if (column == 5){
+            {this.checkLetters()}
+
             row = row + 1;
             column = 0;
         } else {
@@ -89,6 +91,20 @@ class Gameboard extends React.Component {
         this.setState({currRow: row});
         this.setState({currColumn: column});
         console.log(row + " " + column);
+    }
+
+    checkLetters = () => {
+        var winWord = this.state.winnerRow;
+        var currBoard = this.state.boardValue;
+        var row = this.state.currRow;
+        var col = 0;
+        for (var i = 0; i < 5; i++) {
+            if(currBoard[row][i] == winWord[i]){
+                console.log("CORRECT");
+            } else {
+                console.log("INCORRECT");
+            }
+        } 
     }
 
     render () {
