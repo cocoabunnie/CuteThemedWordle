@@ -6,13 +6,20 @@ class Keyboard extends React.Component {
 
     addLetterToBoard = (event) => {
         const getLetter = event.target.value;
-        this.props.addToBoard(getLetter);
+
+        if(getLetter == "DELETE"){
+            this.props.deleteLetter();
+        } else if (getLetter == "SUBMIT"){
+            this.props.submitLetter();
+        } else {
+            this.props.addToBoard(getLetter);
+        }
     }
 
     render () {
         const row1 = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'];
         const row2 = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'];
-        const row3 = ['Z', 'X', 'C', 'V', 'B', 'N', 'M'];
+        const row3 = ['DELETE', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'SUBMIT'];
 
         return(
             <div className = "keyboard">
