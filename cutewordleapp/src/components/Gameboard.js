@@ -1,5 +1,6 @@
 import React from "react";
 import Keyboard from "./Keyboard";
+import words from '../data/wordData.json'
 import '../css/Gameboard.css';
 
 class Gameboard extends React.Component {
@@ -14,9 +15,17 @@ class Gameboard extends React.Component {
                 ["", "", "", "", ""],
                 ["", "", "", "", ""]
             ],
+            winnerWord: "",
+            winnerRow:["","","","",""],
             currRow: 0,
             currColumn: 0
         }
+    }
+
+    componentDidMount = () => {
+        var chosenWord = words[Math.floor(Math.random() * words.length)];
+        this.setState({winnerWord: chosenWord});
+        console.log(chosenWord);
     }
 
     addLetter = (letter) => {
