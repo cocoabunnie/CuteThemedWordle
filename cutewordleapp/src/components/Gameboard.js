@@ -16,16 +16,24 @@ class Gameboard extends React.Component {
                 ["", "", "", "", ""]
             ],
             winnerWord: "",
-            winnerRow:["","","","",""],
+            winnerRow:[],
             currRow: 0,
             currColumn: 0
         }
     }
 
     componentDidMount = () => {
-        var chosenWord = words[Math.floor(Math.random() * words.length)];
-        this.setState({winnerWord: chosenWord});
-        console.log(chosenWord);
+        {this.chooseRandomWord()}
+    }
+
+    chooseRandomWord = () => {
+        var randomNum = Math.floor(Math.random() * words.length);
+        var chosenWord = words[randomNum].word;
+
+        this.setState({winnerWord: chosenWord.toString()});
+        setTimeout(function() { //Slight delay to make sure it happens in order....
+            this.setState({winnerRow: chosenWord.split('')})
+        }.bind(this), 100)
     }
 
     addLetter = (letter) => {
@@ -45,6 +53,8 @@ class Gameboard extends React.Component {
                 boardValue: currBoard
             });
         }
+
+        console.log(this.state.winnerRow);
         
     }
 
