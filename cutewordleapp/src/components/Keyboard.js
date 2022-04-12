@@ -6,7 +6,6 @@ class Keyboard extends React.Component {
 
     addLetterToBoard = (event) => {
         const getLetter = event.target.value;
-        console.log(getLetter);
         this.props.addToBoard(getLetter);
     }
 

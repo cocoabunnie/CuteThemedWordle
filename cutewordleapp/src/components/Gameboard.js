@@ -14,11 +14,25 @@ class Gameboard extends React.Component {
                 ["", "", "", "", ""],
                 ["", "", "", "", ""]
             ],
+            currRow: 0,
+            currColumn: 0
         }
     }
 
-    addLetter(letter) {
-        console.log(letter);
+    addLetter = (letter) => {
+        var currBoard = this.state.boardValue;
+        var row = this.state.currRow;
+        var column = this.state.currColumn;
+
+        //Check to make sure letters haven't reached the end
+        if (column <= 4){
+            currBoard[row][column] = letter;
+            this.setState({currColumn: (column + 1)});
+        }
+
+        this.setState ({
+            boardValue: currBoard
+        });
     }
 
     render () {
