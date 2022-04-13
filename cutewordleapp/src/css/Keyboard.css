@@ -1,9 +1,13 @@
 .keyboard {
-    margin: 20px;
+    flex: 33%;
+    margin: 10px;
+    width: 400px;
 }
 
 .keyboard button{
-    width: 10%;
-    height: 40%;
-    font-size: 65%;
+    width: 9%;
+    height: 50%;
+    font-size: 50%;
+    border: 0px;
+    margin: 1px;
 }
