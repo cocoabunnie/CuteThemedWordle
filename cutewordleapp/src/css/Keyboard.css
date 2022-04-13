@@ -1,13 +1,12 @@
 .keyboard {
-    flex: 33%;
-    margin: 10px;
-    width: 400px;
+    place-items: center;
+    margin-top: 10px;
 }
 
 .keyboard button{
-    width: 9%;
-    height: 50%;
-    font-size: 50%;
-    border: 0px;
-    margin: 1px;
+   width: 9%;
+   height: 40%;
+   font-size: 50%;
+   text-align: center;
+   margin: 1px;
 }
