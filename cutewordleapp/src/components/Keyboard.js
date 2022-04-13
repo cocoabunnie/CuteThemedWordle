@@ -1,5 +1,6 @@
 import { click } from "@testing-library/user-event/dist/click";
 import React from "react";
+import '../css/Keyboard.css';
 import { ReactDOM } from "react";
 
 class Keyboard extends React.Component {
