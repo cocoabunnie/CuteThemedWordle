@@ -9,4 +9,19 @@
     font-weight: bolder;
     
   }
-  
+
+#empty{
+  background-color: white;
+}
+
+#incorrect {
+  background-color: gray;
+}
+
+#almost{
+  background-color: yellow;
+}
+
+#correct{
+  background-color: green;
+}

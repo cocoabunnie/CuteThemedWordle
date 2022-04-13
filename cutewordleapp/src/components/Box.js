@@ -5,8 +5,10 @@ const Box = (props) => {
     const board = props.board;
     const column = props.column;
     const row = props.row;
+    const checkIfCorrect = "empty";
+
     return(
-        <div className = "box">
+        <div className = "box" id={checkIfCorrect}>
             {board[row][column]}
         </div>
     );
