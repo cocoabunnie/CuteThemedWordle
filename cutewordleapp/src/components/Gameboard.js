@@ -102,9 +102,10 @@ class Gameboard extends React.Component {
         for (var i = 0; i < 5; i++) {
             if(currBoard[row][i] == winWord[i]){
                 console.log("CORRECT");
-                currBoard[row][i] = "yes";
+                
             } else {
                 console.log("INCORRECT");
+                console.log("Correct Letter is: " + winWord[i] + " For position " + row + " , " + i);
             }
         } 
     }
@@ -112,9 +113,11 @@ class Gameboard extends React.Component {
     render () {
         const board = this.state.boardValue;
 
-        function Box({column, row, bgColor}){
+        function Box({column, row, correctLetter, color}){
             var inputLetter = board[row][column];
-            return <div className = "box" style = {{backgroundColor: bgColor}}>{inputLetter}</div>
+            color = "orange";
+            
+            return <div className = "box">{inputLetter}</div>
         }
 
         return (
