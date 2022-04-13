@@ -8,7 +8,7 @@ class Gameboard extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-          boardValue: [
+          boardLetters: [
                 ["", "", "", "", ""],
                 ["", "", "", "", ""],
                 ["", "", "", "", ""],
@@ -17,12 +17,12 @@ class Gameboard extends React.Component {
                 ["", "", "", "", ""]
             ],
             boardChecks: [
-                ["empty", "empty", "empty", "empty", "empty"],
-                ["empty", "empty", "empty", "empty", "empty"],
-                ["empty", "empty", "empty", "empty", "empty"],
-                ["empty", "empty", "empty", "empty", "empty"],
-                ["empty", "empty", "empty", "empty", "empty"],
-                ["empty", "empty", "empty", "empty", "empty"]
+                ["", "", "", "", ""],
+                ["", "", "", "", ""],
+                ["", "", "", "", ""],
+                ["", "", "", "", ""],
+                ["", "", "", "", ""],
+                ["", "", "", "", ""]
             ],
             winnerWord: "",
             winnerRow:[],
@@ -47,7 +47,7 @@ class Gameboard extends React.Component {
     }
 
     addLetter = (letter) => {
-        var currBoard = this.state.boardValue;
+        var currBoard = this.state.boardLetters;
         var row = this.state.currRow;
         var column = this.state.currColumn;
 
@@ -60,7 +60,7 @@ class Gameboard extends React.Component {
             }
     
             this.setState ({
-                boardValue: currBoard
+                boardLetters: currBoard
             });
         }
 
@@ -69,7 +69,7 @@ class Gameboard extends React.Component {
     }
 
     deleteLetter = () => {
-        var currBoard = this.state.boardValue;
+        var currBoard = this.state.boardLetters;
         var row = this.state.currRow;
         var column = this.state.currColumn;
         
@@ -79,10 +79,10 @@ class Gameboard extends React.Component {
         }
 
         this.setState ({
-            boardValue: currBoard
+            boardLetters: currBoard
         });
 
-        console.log(this.state.boardValue);
+        console.log(this.state.boardLetters);
     }
 
     submitWord = () => {
@@ -105,7 +105,7 @@ class Gameboard extends React.Component {
 
     checkLetters = () => {
         var winWord = this.state.winnerRow;
-        var currBoard = this.state.boardValue;
+        var currBoard = this.state.boardLetters;
         var boardColors = this.state.boardChecks;
         var row = this.state.currRow;
         var col = 0;
@@ -115,8 +115,11 @@ class Gameboard extends React.Component {
                 boardColors[row][i] = "correct";
                 console.log(boardColors);
             } else {
-                console.log("INCORRECT");
-                console.log("Correct Letter is: " + winWord[i] + " For position " + row + " , " + i);
+                if(winWord.includes(currBoard[row][i])){
+                boardColors[row][i] = "almost";
+                } else {
+                    boardColors[row][i] = "incorrect";
+                }
             }
         } 
 
@@ -124,8 +127,7 @@ class Gameboard extends React.Component {
     }
 
     render () {
-        const board = this.state.boardValue;
-        const boardColors = this.state.boardColors;
+        const board = this.state.boardLetters;
 
         return (
             <div className = "gameGridContainer">
