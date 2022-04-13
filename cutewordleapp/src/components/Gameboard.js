@@ -1,5 +1,6 @@
 import React from "react";
 import Keyboard from "./Keyboard";
+import Box from "./Box";
 import words from '../data/wordData.json'
 import '../css/Gameboard.css';
 
@@ -102,7 +103,7 @@ class Gameboard extends React.Component {
         for (var i = 0; i < 5; i++) {
             if(currBoard[row][i] == winWord[i]){
                 console.log("CORRECT");
-                
+                currBoard[row][i] = "YES"
             } else {
                 console.log("INCORRECT");
                 console.log("Correct Letter is: " + winWord[i] + " For position " + row + " , " + i);
@@ -113,61 +114,62 @@ class Gameboard extends React.Component {
     render () {
         const board = this.state.boardValue;
 
-        function Box({column, row, correctLetter, color}){
+        /*
+        function Box({column, row}){
             var inputLetter = board[row][column];
-            color = "orange";
             
             return <div className = "box">{inputLetter}</div>
         }
+        */
 
         return (
             <div className = "gameGridContainer">
                 <div className="row">
-                    <Box column={0} row={0}/>
-                    <Box column={1} row={0}/>
-                    <Box column={2} row={0}/>
-                    <Box column={3} row={0}/>
-                    <Box column={4} row={0}/>
+                    <Box column={0} row={0} board={board}/>
+                    <Box column={1} row={0} board={board}/>
+                    <Box column={2} row={0} board={board}/>
+                    <Box column={3} row={0} board={board}/>
+                    <Box column={4} row={0} board={board}/>
                 </div>
 
                 <div className="row">
-                    <Box column={0} row={1}/>
-                    <Box column={1} row={1}/>
-                    <Box column={2} row={1}/>
-                    <Box column={3} row={1}/>
-                    <Box column={4} row={1}/>
+                    <Box column={0} row={1} board={board}/>
+                    <Box column={1} row={1} board={board}/>
+                    <Box column={2} row={1} board={board}/>
+                    <Box column={3} row={1} board={board}/>
+                    <Box column={4} row={1} board={board}/>
                 </div>
 
                 <div className="row">
-                    <Box column={0} row={2}/>
-                    <Box column={1} row={2}/>
-                    <Box column={2} row={2}/>
-                    <Box column={3} row={2}/>
-                    <Box column={4} row={2}/>
+                    <Box column={0} row={2} board={board}/>
+                    <Box column={1} row={2} board={board}/>
+                    <Box column={2} row={2} board={board}/>
+                    <Box column={3} row={2} board={board}/>
+                    <Box column={4} row={2} board={board}/>
                 </div>
 
                 <div className="row">
-                    <Box column={0} row={3}/>
-                    <Box column={1} row={3}/>
-                    <Box column={2} row={3}/>
-                    <Box column={3} row={3}/>
-                    <Box column={4} row={3}/>
+                    <Box column={0} row={3} board={board}/>
+                    <Box column={1} row={3} board={board}/>
+                    <Box column={2} row={3} board={board}/>
+                    <Box column={3} row={3} board={board}/>
+                    <Box column={4} row={3} board={board}/>
                 </div>
 
                 <div className="row">
-                    <Box column={0} row={4}/>
-                    <Box column={1} row={4}/>
-                    <Box column={2} row={4}/>
-                    <Box column={3} row={4}/>
-                    <Box column={4} row={4}/>
+                    <Box column={0} row={4} board={board}/>
+                    <Box column={1} row={4} board={board}/>
+                    <Box column={2} row={4} board={board}/>
+                    <Box column={3} row={4} board={board}/>
+                    <Box column={4} row={4} board={board}/>
                 </div>
 
                 <div className="row">
-                    <Box column={0} row={5}/>
-                    <Box column={1} row={5}/>
-                    <Box column={2} row={5}/>
-                    <Box column={3} row={5}/>
-                    <Box column={4} row={5}/>
+                    <Box column={0} row={5} board={board}/>
+                    <Box column={1} row={5} board={board}/>
+                    <Box column={2} row={5} board={board}/>
+                    <Box column={3} row={5} board={board}/>
+                    <Box column={4} row={5} board={board}/>
                 </div>
 
                 <Keyboard addToBoard = {this.addLetter} delete = {this.deleteLetter} submit = {this.submitWord}/>
