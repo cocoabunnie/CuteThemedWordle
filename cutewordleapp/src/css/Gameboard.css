@@ -1,6 +1,7 @@
 .gameGridContainer {
     width: 500px;
     height: 500px;
+    border-radius: 2%;
     border: 1px solid black;
     display: flex;
     flex-direction: column;
