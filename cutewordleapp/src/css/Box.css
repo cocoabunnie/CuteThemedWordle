@@ -2,24 +2,25 @@
     flex: 33%;
     height: 100%;
     width: 100%;
-    border: 1px solid grey;
+    border: 0px solid grey;
     border-radius: 20%;
     margin: 5px;
     display: grid;
     place-items: center;
     font-size: 30px;
     font-weight: bolder;
-    background-color: white;
+    color: var(--soft-black);
+    background-color: var(--cloud-white);
   }
 
 #incorrect {
-  background-color: gray;
+  background-color: var(--light-gray);
 }
 
 #almost{
-  background-color: yellow;
+  background-color: var(--light-yellow);
 }
 
 #correct{
-  background-color: green;
+  background-color: var(--dark-green);
 }

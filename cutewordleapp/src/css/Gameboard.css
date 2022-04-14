@@ -7,7 +7,7 @@
     flex-direction: column;
     justify-content: center;
     padding-bottom: 4%;
-    background-color: pink;
+    background-color: var(--deep-pink);
   }
   
 .row {

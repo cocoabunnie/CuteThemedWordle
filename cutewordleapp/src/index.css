@@ -1,11 +1,14 @@
 :root {
+  --cloud-white: #F6F6F6;
   --soft-pink: #FFE2E2;
   --deep-pink: #FFC7C7;
+  --soft-purple: #d9b6e0;
   --light-yellow: #fcfc91;
   --light-green: #cbe784;
   --dark-green: #73ad83;
   --light-gray: #AAAAAA;
-  --cloud-white: #F6F6F6;
+  --soft-brown: #7D5A5A;
+  --soft-black: #313131;
 }
 
 body {
