@@ -5,8 +5,12 @@
     align-items: center;
     flex-direction: column;
     background-color: var(--soft-pink);
+    background-image: url("../pictures/peachPattern.png");
+    background-size: 1200px;
+    background-repeat: repeat-y;
+    background-position: center;
 }
 
 h1{
-  color: var(--soft-brown);
+  color: var(--soft-black);
 }
