@@ -1,5 +1,6 @@
 import { click } from "@testing-library/user-event/dist/click";
 import React from "react";
+import '../css/Keyboard.css';
 import { ReactDOM } from "react";
 
 class Keyboard extends React.Component {
@@ -7,9 +8,9 @@ class Keyboard extends React.Component {
     addLetterToBoard = (event) => {
         const getLetter = event.target.value;
 
-        if(getLetter == "DELETE"){
+        if(getLetter == "BACK"){
             this.props.delete();
-        } else if (getLetter == "SUBMIT"){
+        } else if (getLetter == "CHECK"){
             this.props.submit();
         } else {
             this.props.addToBoard(getLetter);
@@ -19,7 +20,7 @@ class Keyboard extends React.Component {
     render () {
         const row1 = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'];
         const row2 = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'];
-        const row3 = ['DELETE', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'SUBMIT'];
+        const row3 = ['BACK', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'CHECK'];
 
         return(
             <div className = "keyboard">

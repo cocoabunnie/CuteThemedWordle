@@ -1,5 +1,6 @@
 import React from "react";
 import Keyboard from "./Keyboard";
+import Box from "./Box";
 import words from '../data/wordData.json'
 import '../css/Gameboard.css';
 
@@ -7,7 +8,15 @@ class Gameboard extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-          boardValue: [
+          boardLetters: [
+                ["", "", "", "", ""],
+                ["", "", "", "", ""],
+                ["", "", "", "", ""],
+                ["", "", "", "", ""],
+                ["", "", "", "", ""],
+                ["", "", "", "", ""]
+            ],
+            boardChecks: [
                 ["", "", "", "", ""],
                 ["", "", "", "", ""],
                 ["", "", "", "", ""],
@@ -38,7 +47,7 @@ class Gameboard extends React.Component {
     }
 
     addLetter = (letter) => {
-        var currBoard = this.state.boardValue;
+        var currBoard = this.state.boardLetters;
         var row = this.state.currRow;
         var column = this.state.currColumn;
 
@@ -51,7 +60,7 @@ class Gameboard extends React.Component {
             }
     
             this.setState ({
-                boardValue: currBoard
+                boardLetters: currBoard
             });
         }
 
@@ -60,7 +69,7 @@ class Gameboard extends React.Component {
     }
 
     deleteLetter = () => {
-        var currBoard = this.state.boardValue;
+        var currBoard = this.state.boardLetters;
         var row = this.state.currRow;
         var column = this.state.currColumn;
         
@@ -70,10 +79,10 @@ class Gameboard extends React.Component {
         }
 
         this.setState ({
-            boardValue: currBoard
+            boardLetters: currBoard
         });
 
-        console.log(this.state.boardValue);
+        console.log(this.state.boardLetters);
     }
 
     submitWord = () => {
@@ -96,75 +105,78 @@ class Gameboard extends React.Component {
 
     checkLetters = () => {
         var winWord = this.state.winnerRow;
-        var currBoard = this.state.boardValue;
+        var currBoard = this.state.boardLetters;
+        var boardColors = this.state.boardChecks;
         var row = this.state.currRow;
         var col = 0;
         for (var i = 0; i < 5; i++) {
             if(currBoard[row][i] == winWord[i]){
                 console.log("CORRECT");
-                currBoard[row][i] = "yes";
+                boardColors[row][i] = "correct";
+                console.log(boardColors);
             } else {
-                console.log("INCORRECT");
+                if(winWord.includes(currBoard[row][i])){
+                boardColors[row][i] = "almost";
+                } else {
+                    boardColors[row][i] = "incorrect";
+                }
             }
         } 
+
+        this.setState({boardColors: {boardColors}});
     }
 
     render () {
-        const board = this.state.boardValue;
-
-        function Box({column, row, bgColor}){
-            var inputLetter = board[row][column];
-            return <div className = "box" style = {{backgroundColor: bgColor}}>{inputLetter}</div>
-        }
+        const board = this.state.boardLetters;
 
         return (
             <div className = "gameGridContainer">
                 <div className="row">
-                    <Box column={0} row={0}/>
-                    <Box column={1} row={0}/>
-                    <Box column={2} row={0}/>
-                    <Box column={3} row={0}/>
-                    <Box column={4} row={0}/>
+                    <Box column={0} row={0} board={board} boardChecks={this.state.boardChecks[0][0]}/>
+                    <Box column={1} row={0} board={board} boardChecks={this.state.boardChecks[0][1]}/>
+                    <Box column={2} row={0} board={board} boardChecks={this.state.boardChecks[0][2]}/>
+                    <Box column={3} row={0} board={board} boardChecks={this.state.boardChecks[0][3]}/>
+                    <Box column={4} row={0} board={board} boardChecks={this.state.boardChecks[0][4]}/>
                 </div>
 
                 <div className="row">
-                    <Box column={0} row={1}/>
-                    <Box column={1} row={1}/>
-                    <Box column={2} row={1}/>
-                    <Box column={3} row={1}/>
-                    <Box column={4} row={1}/>
+                    <Box column={0} row={1} board={board} boardChecks={this.state.boardChecks[1][0]}/>
+                    <Box column={1} row={1} board={board} boardChecks={this.state.boardChecks[1][1]}/>
+                    <Box column={2} row={1} board={board} boardChecks={this.state.boardChecks[1][2]}/>
+                    <Box column={3} row={1} board={board} boardChecks={this.state.boardChecks[1][3]}/>
+                    <Box column={4} row={1} board={board} boardChecks={this.state.boardChecks[1][4]}/>
                 </div>
 
                 <div className="row">
-                    <Box column={0} row={2}/>
-                    <Box column={1} row={2}/>
-                    <Box column={2} row={2}/>
-                    <Box column={3} row={2}/>
-                    <Box column={4} row={2}/>
+                    <Box column={0} row={2} board={board} boardChecks={this.state.boardChecks[2][0]}/>
+                    <Box column={1} row={2} board={board} boardChecks={this.state.boardChecks[2][1]}/>
+                    <Box column={2} row={2} board={board} boardChecks={this.state.boardChecks[2][2]}/>
+                    <Box column={3} row={2} board={board} boardChecks={this.state.boardChecks[2][3]}/>
+                    <Box column={4} row={2} board={board} boardChecks={this.state.boardChecks[2][4]}/>
                 </div>
 
                 <div className="row">
-                    <Box column={0} row={3}/>
-                    <Box column={1} row={3}/>
-                    <Box column={2} row={3}/>
-                    <Box column={3} row={3}/>
-                    <Box column={4} row={3}/>
+                    <Box column={0} row={3} board={board} boardChecks={this.state.boardChecks[3][0]}/>
+                    <Box column={1} row={3} board={board} boardChecks={this.state.boardChecks[3][1]}/>
+                    <Box column={2} row={3} board={board} boardChecks={this.state.boardChecks[3][2]}/>
+                    <Box column={3} row={3} board={board} boardChecks={this.state.boardChecks[3][3]}/>
+                    <Box column={4} row={3} board={board} boardChecks={this.state.boardChecks[3][4]}/>
                 </div>
 
                 <div className="row">
-                    <Box column={0} row={4}/>
-                    <Box column={1} row={4}/>
-                    <Box column={2} row={4}/>
-                    <Box column={3} row={4}/>
-                    <Box column={4} row={4}/>
+                    <Box column={0} row={4} board={board} boardChecks={this.state.boardChecks[4][0]}/>
+                    <Box column={1} row={4} board={board} boardChecks={this.state.boardChecks[4][1]}/>
+                    <Box column={2} row={4} board={board} boardChecks={this.state.boardChecks[4][2]}/>
+                    <Box column={3} row={4} board={board} boardChecks={this.state.boardChecks[4][3]}/>
+                    <Box column={4} row={4} board={board} boardChecks={this.state.boardChecks[4][4]}/>
                 </div>
 
                 <div className="row">
-                    <Box column={0} row={5}/>
-                    <Box column={1} row={5}/>
-                    <Box column={2} row={5}/>
-                    <Box column={3} row={5}/>
-                    <Box column={4} row={5}/>
+                    <Box column={0} row={5} board={board} boardChecks={this.state.boardChecks[5][0]}/>
+                    <Box column={1} row={5} board={board} boardChecks={this.state.boardChecks[5][1]}/>
+                    <Box column={2} row={5} board={board} boardChecks={this.state.boardChecks[5][2]}/>
+                    <Box column={3} row={5} board={board} boardChecks={this.state.boardChecks[5][3]}/>
+                    <Box column={4} row={5} board={board} boardChecks={this.state.boardChecks[5][4]}/>
                 </div>
 
                 <Keyboard addToBoard = {this.addLetter} delete = {this.deleteLetter} submit = {this.submitWord}/>

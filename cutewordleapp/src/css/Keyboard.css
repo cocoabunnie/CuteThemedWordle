@@ -1,0 +1,16 @@
+.keyboard {
+    place-items: center;
+    margin-top: 10px;
+}
+
+.keyboard button{
+   width: 9%;
+   height: 50%;
+   font-size: 50%;
+   font-weight: bold;
+   text-align: center;
+   margin: 1px;
+   border: 0px;
+   border-radius: 20%;
+   background-color: var(--soft-brown);
+}

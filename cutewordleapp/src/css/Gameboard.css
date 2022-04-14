@@ -1,23 +1,15 @@
 .gameGridContainer {
-    width: 500px;
+    width: 350px;
     height: 450px;
-    border: 1px solid black;
+    border-radius: 2%;
+    border: 0px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    padding-bottom: 4%;
+    background-color: var(--deep-pink);
   }
-
-.box {
-  flex: 33%;
-  height: 100%;
-  border: 1px solid grey;
-  margin: 5px;
-  display: grid;
-  place-items: center;
-  font-size: 30px;
-  font-weight: bolder;
   
-}
-
 .row {
     flex: 33%;
     display: flex;
