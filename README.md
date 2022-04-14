@@ -25,3 +25,5 @@ This branch shows the "skeleton" or the basic parts of the game. This is the gam
 
 ### "Styling" Branch 💖🎨
 This branch basically shows the game, but after I added styling to it. This can also be considered as the "polished" version
+
+Feel free to play it as much as you like, and have fun! ♥️
