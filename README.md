@@ -2,9 +2,9 @@
 
 This is my version of the game Wordle. It's the same game, but with a very cute, soft, pink theme. I love the game Wordle, and I've seen many versions of it, but I haven't seen a version that's pink, so I made this one! 
 
-I will most likely publish it online, and when I do I'll post the link here, however I'm still adding more words and features to it.
-
 ### How To Play
+
+This project is available at pinkwordle.vercel.app
 
 The goal of the game is to guess the 5 letter word in 6 tries or less. As you guess, you'll get hints as to which letters belong to the word, which letters are in the right place, and which letters don't belong in the word all together. 
 
