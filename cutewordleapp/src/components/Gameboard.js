@@ -29,7 +29,7 @@ class Gameboard extends React.Component {
             winnerRow:[],
             currRow: 0,
             currColumn: 0,
-            color: "pink"
+            userWon: false
         }
     }
 
@@ -109,12 +109,12 @@ class Gameboard extends React.Component {
         var currBoard = this.state.boardLetters;
         var boardColors = this.state.boardChecks;
         var row = this.state.currRow;
+        var correctLetters = 0;
         var col = 0;
         for (var i = 0; i < 5; i++) {
             if(currBoard[row][i] == winWord[i]){
-                console.log("CORRECT");
                 boardColors[row][i] = "correct";
-                console.log(boardColors);
+                correctLetters = correctLetters + 1
             } else {
                 if(winWord.includes(currBoard[row][i])){
                 boardColors[row][i] = "almost";
@@ -125,12 +125,16 @@ class Gameboard extends React.Component {
         } 
 
         this.setState({boardColors: {boardColors}});
+
+        //Drop confettis when the user wins
+        if (correctLetters == 5){
+            this.setState({userWon: true});
+        }
     }
 
     render () {
         const board = this.state.boardLetters;
-        const winWidth = window.innerWidth;
-        const winHeight = window.innerHeight;
+
         return (
             <div className = "gameGridContainer">
                 <div className="row">
@@ -184,8 +188,10 @@ class Gameboard extends React.Component {
                 <Keyboard addToBoard = {this.addLetter} delete = {this.deleteLetter} submit = {this.submitWord}/>
 
                 <Confetti
-                    width = {winWidth}
-                    height = {winHeight}
+                    width = {window.innerWidth}
+                    height = {window.innerHeight}
+                    numberOfPieces = '50'
+                    run = {this.state.userWon}
                 />
             </div>
         );
