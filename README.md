@@ -4,7 +4,7 @@ This is my version of the game Wordle. It's the same game, but with a very cute,
 
 ### How To Play
 
-This project is available at [pinkwordle.vercel.app](pinkwordle.vercel.app)
+This project is available at [pinkwordle.vercel.app](https://pinkwordle.vercel.app/)
 
 The goal of the game is to guess the 5 letter word in 6 tries or less. As you guess, you'll get hints as to which letters belong to the word, which letters are in the right place, and which letters don't belong in the word all together. 
 
