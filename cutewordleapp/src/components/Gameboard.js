@@ -1,6 +1,7 @@
 import React from "react";
 import Keyboard from "./Keyboard";
 import Box from "./Box";
+import Confetti from "react-confetti";
 import words from '../data/wordData.json'
 import '../css/Gameboard.css';
 
@@ -128,7 +129,8 @@ class Gameboard extends React.Component {
 
     render () {
         const board = this.state.boardLetters;
-
+        const winWidth = window.innerWidth;
+        const winHeight = window.innerHeight;
         return (
             <div className = "gameGridContainer">
                 <div className="row">
@@ -180,6 +182,11 @@ class Gameboard extends React.Component {
                 </div>
 
                 <Keyboard addToBoard = {this.addLetter} delete = {this.deleteLetter} submit = {this.submitWord}/>
+
+                <Confetti
+                    width = {winWidth}
+                    height = {winHeight}
+                />
             </div>
         );
     }
